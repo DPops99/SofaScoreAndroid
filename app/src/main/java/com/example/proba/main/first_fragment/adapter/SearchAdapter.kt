@@ -8,10 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.proba.R
 import com.example.proba.databinding.CityItemViewBinding
+import com.example.proba.helper.ConverterHelper
+import com.example.proba.helper.LocationConverter
+import com.example.proba.helper.WrapperHelperObject
 import com.example.proba.network.model.City
 import java.lang.Math.round
 
-class SearchAdapter(var cities : ArrayList<City>, val context : Context, var listener: SearchAdapter.OnItemClickListener?, var long_listener: OnItemLongClickListener)  : RecyclerView.Adapter<SearchAdapter.SearchHolder>(){
+class SearchAdapter(var cities : ArrayList<City>, val context : Context, var listener: SearchAdapter.OnItemClickListener?, var view_listener: OnItemViewClickListener?)  : RecyclerView.Adapter<SearchAdapter.SearchHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchHolder {
         return SearchHolder(CityItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -23,14 +26,12 @@ class SearchAdapter(var cities : ArrayList<City>, val context : Context, var lis
         holder.binding.cityDistance.text = cities[position].timezone_name
 
         val ll = cities[position].latt_long!!.split(",")
-        holder.binding.cityLattLong.text = """${(round(ll[0].toFloat() * 100) / 100)} ${(round(ll[1].toFloat() * 100) / 100)}"""
+        holder.binding.cityLattLong.text = LocationConverter.latitudeAsDMS(ll[0].toDouble(), 2)+" "+LocationConverter.longitudeAsDMS(ll[1].toDouble() , 2)
 
-        holder.binding.cityTemp.text = """${cities[position].consolidated_weather?.get(0)?.the_temp?.toInt().toString()}°"""
 
-        var id = "@drawable/ic_"+cities[position].consolidated_weather?.get(0)?.weather_state_abbr
-        var img_res = context.resources.getIdentifier(id,null,context.packageName)
-        var logo_draw = context.resources.getDrawable(img_res)
-        holder.binding.cityWImg.load(logo_draw)
+        holder.binding.cityTemp.text = ConverterHelper.temp(cities[position].consolidated_weather?.get(0)?.the_temp, context).toString()+"°"
+
+        holder.binding.cityWImg.load(WrapperHelperObject.getDrawableResursFromString(cities[position].consolidated_weather?.get(0)?.weather_state_abbr,context))
 
         if (cities[position].favorite)
             holder.binding.imgStar.load(R.drawable.ic_star_1)
@@ -57,15 +58,15 @@ class SearchAdapter(var cities : ArrayList<City>, val context : Context, var lis
         return cities.size
     }
 
-    inner class SearchHolder(val binding: CityItemViewBinding) : RecyclerView.ViewHolder(binding.root), View.OnLongClickListener{
+    inner class SearchHolder(val binding: CityItemViewBinding) : RecyclerView.ViewHolder(binding.root), View.OnClickListener{
         init {
-            binding.root.setOnLongClickListener(this)
+            binding.root.setOnClickListener(this)
         }
-        override fun onLongClick(v: View?): Boolean {
+        override fun onClick(v: View?) {
             val position = adapterPosition
             if(position!= RecyclerView.NO_POSITION)
-                long_listener.onItemLongClick(position)
-            return true
+                view_listener?.onItemClick(position)
+
         }
     }
 
@@ -74,15 +75,21 @@ class SearchAdapter(var cities : ArrayList<City>, val context : Context, var lis
         fun onItemClick(position: Int, isFav : Boolean)
     }
 
-    interface OnItemLongClickListener{
-        fun onItemLongClick(position: Int)
+    interface OnItemViewClickListener{
+        fun onItemClick(position: Int)
     }
 
     fun moveItem(from : Int, to : Int){
         val from_fav = cities[from]
+        val from_order = cities[from].order
+        val to_order = cities[to].order
+
+        cities[from].order = to_order
+        cities[to].order = from_order
 
         cities[from] = cities[to]
         cities[to] = from_fav
+
 
     }
 

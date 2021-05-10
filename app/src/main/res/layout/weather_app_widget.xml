@@ -1,0 +1,54 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/app_widget"
+    android:padding="@dimen/widget_margin"
+    android:theme="@style/ThemeOverlay.Proba.AppWidgetContainer"
+    android:columnCount="3">
+
+
+    <ImageView
+        android:layout_height="100dp"
+        android:layout_width="64dp"
+        android:layout_columnWeight="1"
+        android:src="@drawable/ic_h"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        />
+    <TextView
+        android:layout_height="100dp"
+        android:layout_columnWeight="1"
+        android:text="77°"
+        android:textAlignment="center"
+        android:layout_gravity="fill_horizontal"
+        android:textSize="80sp"
+        android:gravity="center"
+        android:textColor="@color/surface_1"/>
+    <LinearLayout
+        android:layout_gravity="fill_horizontal"
+        android:layout_height="100dp"
+        android:layout_columnWeight="1"
+
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Zagreb"
+            android:textColor="@color/surface_1"
+            android:layout_marginTop="16dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/surface_1"
+            android:text="Sunny"
+            android:layout_marginTop="2dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/surface_1"
+            android:text="79° / 66°"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+</GridLayout>

@@ -1,11 +1,13 @@
 package com.example.proba.main
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.example.proba.databinding.ActivityMainBinding
 import com.example.proba.R
+import com.example.proba.helper.LanguageHelper
 import com.example.proba.main.first_fragment.SearchFragment
 import com.example.proba.main.second_fragment.ShowFragment
 import com.example.proba.main.third_fragment.SettingsFragment
@@ -55,6 +57,10 @@ class MainActivity : AppCompatActivity() {
             replace(binding.fragmentView.id,fragment)
             commit()
         }
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(LanguageHelper.wrapLanguage(newBase))
     }
 
 

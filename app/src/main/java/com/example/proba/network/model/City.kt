@@ -23,7 +23,10 @@ data class City (
     var favorite : Boolean = false,
     @Transient
     @ColumnInfo(name = "isRecent")
-    var recent : Boolean = false
+    var recent : Boolean = false,
+    @Transient
+    @ColumnInfo(name = "cOrder")
+    var order : Int = 0
         ) : Serializable
         {
             constructor(title: String, location_type: String, latt_long: String, time: String, timezone_name: String, woeid: Int) :

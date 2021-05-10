@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Treci zadatak</string>
+    <string name="app_name">Super Cool Weather App</string>
     <string name="input_menu">Unos</string>
     <string name="show_menu">Prikazi</string>
     <string name="first_name">Ime</string>
@@ -37,4 +37,24 @@
     <string name="search">Pretrazi</string>
     <string name="my_cities">Moji gradovi</string>
     <string name="recent">Nedavno</string>
+    <string name="language_en">Engleski</string>
+    <string name="language_hr">Hrvatski</string>
+    <string name="clear_fav_cities">IZBRIŠI VLASTITE GRADOVE</string>
+    <string name="clear_recent_cities">IZBRIŠI NEDAVNO VIĐENE GRADOVE</string>
+    <string name="metric">Metrički</string>
+    <string name="imperial">Imperijalni</string>
+    <string name="unit_type">Odaberi mjernu jedinicu</string>
+    <string name="about_me">O meni</string>
+    <string name="about_contex">Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna. Ut laoreet sodales nisi, quis iaculis nulla iaculis.</string>
+    <string name="more">VIŠE INFORMACIJA</string>
+    <string name="lang">Jezik</string>
+    <string name="about">O meni</string>
+    <string name="sofa">SofaScore Android Akademija</string>
+    <string name="sofa_class">Razred 2021</string>
+    <string name="sofa_score">SofaScore</string>
+    <string name="about_name">App Ime</string>
+    <string name="abour_api">API Zasluge</string>
+    <string name="api_credit">metaweather</string>
+    <string name="developer">Developer</string>
+    <string name="dev_name">Danijel Popović</string>
 </resources>

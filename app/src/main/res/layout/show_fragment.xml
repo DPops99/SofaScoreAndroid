@@ -9,7 +9,8 @@
         android:id="@+id/show_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:contentInsetStart="0dp">
+        app:contentInsetStart="0dp"
+        android:background="@color/tint_primary">
 
         <RelativeLayout
             android:id="@+id/show_layout"

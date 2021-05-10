@@ -3,7 +3,7 @@
     package="com.example.proba">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,10 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Custom">
-        <activity android:name=".singleCity.SingleCityActivity"
-            android:parentActivityName=".main.MainActivity">
+        <receiver android:name=".WeatherAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
 
-        </activity>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_app_widget_info" />
+        </receiver>
+
+        <activity
+            android:name=".aboutMe.AboutMeActivity"
+            android:parentActivityName=".main.MainActivity" />
+        <activity
+            android:name=".singleCity.SingleCityActivity"
+            android:parentActivityName=".main.MainActivity" />
         <activity android:name=".singleTeta.SingleTetaActivity" />
         <activity
             android:name=".main.MainActivity"

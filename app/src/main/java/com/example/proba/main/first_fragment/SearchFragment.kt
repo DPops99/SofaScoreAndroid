@@ -25,7 +25,7 @@ import com.example.proba.room.viewmodel.RoomViewModel
 import com.example.proba.singleCity.SingleCityActivity
 import java.io.Serializable
 
-class SearchFragment : Fragment(), SearchAdapter.OnItemLongClickListener, SearchAdapter.OnItemClickListener {
+class SearchFragment : Fragment(), SearchAdapter.OnItemViewClickListener, SearchAdapter.OnItemClickListener {
 
     private val apiViewModel : ApiViewModel by activityViewModels()
     private lateinit var roomViewModel : RoomViewModel
@@ -127,7 +127,7 @@ class SearchFragment : Fragment(), SearchAdapter.OnItemLongClickListener, Search
     }
 
 
-    override fun onItemLongClick(position: Int) {
+    override fun onItemClick(position: Int) {
         if (adapter.cities[position].woeid != null ) {
 
                     current_city = adapter.cities[position]
@@ -145,7 +145,7 @@ class SearchFragment : Fragment(), SearchAdapter.OnItemLongClickListener, Search
 
         current_city = adapter.cities[position]
         current_city.favorite = isFav
-        roomViewModel.saveAndGetFavCity(current_city)
+        roomViewModel.saveAndGetFavCity(current_city, isFav)
 
     }
 

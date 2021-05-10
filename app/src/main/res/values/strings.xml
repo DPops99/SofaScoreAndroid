@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Third Task</string>
+    <string name="app_name">Super Cool Weather App</string>
     <string name="input_menu">Input</string>
     <string name="show_menu">Show</string>
     <string name="first_name">First Name</string>
@@ -36,4 +36,26 @@
     <string name="search">Search</string>
     <string name="my_cities">My Cities</string>
     <string name="recent">Recent</string>
+    <string name="language_en">English</string>
+    <string name="language_hr">Croatian</string>
+    <string name="clear_fav_cities">CLEAR MY CITIES LIST</string>
+    <string name="clear_recent_cities">CLEAR RECENT SEARCH LIST</string>
+    <string name="metric">Metric</string>
+    <string name="imperial">Imperial</string>
+    <string name="unit_type">Choose your type of unit</string>
+    <string name="about_me">About me</string>
+    <string name="about_contex">Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna. Ut laoreet sodales nisi, quis iaculis nulla iaculis.</string>
+    <string name="more">MORE INFO</string>
+    <string name="lang">Language</string>
+    <string name="about">About</string>
+    <string name="sofa">SofaScore Android Academy</string>
+    <string name="sofa_class">Class 2021</string>
+    <string name="sofa_score">SofaScore</string>
+    <string name="about_name">App Name</string>
+    <string name="abour_api">API Credit</string>
+    <string name="api_credit">metaweather</string>
+    <string name="developer">Developer</string>
+    <string name="dev_name">Danijel Popović</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>
